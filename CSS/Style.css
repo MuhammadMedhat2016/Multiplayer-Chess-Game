@@ -1,0 +1,191 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-color: rgb(58, 52, 52);
+  padding: 1rem;
+}
+.player-one-tracker, .player-two-tracker {
+  width: 30%;
+  height: 60%;
+  background-color:rgb(63, 61, 61);
+  padding: 2rem;
+  border: solid 2px black;
+  overflow-y: auto;
+
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background: #a1a1a1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.movements{
+  list-style: none;
+  counter-reset: myCounter;
+  padding: 1.5rem;
+}
+.movement{
+  color:rgb(252, 252, 130);
+  font-size: 1.6rem;
+  margin: 5px;
+  position: relative;
+  counter-increment: myCounter;
+  padding-left: 1.5rem;
+  margin-bottom: 3rem;
+}
+.movement::before{
+  content: counter(myCounter);
+  position: absolute;
+  top: 0;
+  left: -8%;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fcd000;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 5px white;
+}
+.movement.highlight{
+  color: rgb(111, 224, 111);
+}
+.movement.danger{
+  color: rgb(192, 11, 11);
+}
+.main-board{
+  width: 60%;
+  height: 80%;
+  align-self: flex-start;
+  
+}
+.timer{
+  width: 60%;
+  height: 18vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time{
+  font-size: 5rem;
+  color: white;
+}
+.chess-board{
+  border-collapse: collapse;
+  table-layout: fixed;  
+  margin: auto;
+  border: 5px solid black;
+  background-color: rgb(191, 214, 86);;
+}
+.chess-row{
+  border: 0px;
+}
+.cell
+{
+  width: 7rem;
+  height: 7rem;
+  position: relative;
+  cursor: pointer;
+ }
+ .cell img{
+   width: 6rem;
+   height: 6rem;
+   display: block;
+   margin: auto;
+}
+ .cell.highlight::before{
+  position: absolute;
+  display: block;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  z-index: 100;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+
+  background-color: rgba(221, 10, 10, 0.582);
+  /*background-color: rgba(255, 0, 0, 0.658);*/
+}
+
+ .chess-row:nth-of-type(odd) .cell:nth-of-type(odd){
+   background-color: rgb(233, 248, 165);;
+ }
+
+ .chess-row:nth-of-type(even) .cell:nth-of-type(even){
+  background-color: rgb(233, 248, 165); 
+ }
+
+ .chess-row:nth-of-type(even) .cell:nth-of-type(odd){
+  background-color: rgb(124, 184, 74); 
+ }
+
+ .chess-row:nth-of-type(odd) .cell:nth-of-type(even){
+  background-color: rgb(124, 184, 74); 
+ }
+ .numbering-row,
+ .numbering-col{
+   position: absolute;
+   font-size: 1.5rem; 
+   left: 3px;
+   cursor:pointer;
+  }
+.numbering-row{
+  top:2px;
+}
+
+.numbering-col{
+   bottom: 2px;
+ }
+/*
+ @keyframes btn-click {
+  0%   {transform: scale(0.95, 0.95)}
+  25% {transform: scale(0.85, 0.85)}
+  50% {transform: scale(0.9, 0.9)}
+  75% {transform: scale(0.95, 0.95)}
+  100% {transform: scale(1, 1)}
+}
+
+.animated-btn{
+  animation-name: btn-click;
+  animation-duration: 0.5s;
+}*/
+.animated-btn{
+  transform: scale(0.9, 0.9);
+}
+
+
+.header {
+  color: white;
+  text-align: center;
+  margin: 1.5rem 0rem;
+}
+
+
+.capture{
+  border: 5px solid red;
+}
+
